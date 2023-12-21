@@ -8,11 +8,13 @@ import (
 func main() {
 	// Instantiate default collector
 	c := colly.NewCollector(
-	// Visit only domains
-	// domain 要慎用！！
-	// http://www.youngzy.com/ 这个居然不满足下面的域
-	// 找了其他网站看看，很多都省略 www 了
-	//colly.AllowedDomains("youngzy.com", "github.com"),
+		// Visit only domains
+		// domain 要慎用！！
+		// http://www.youngzy.com/ 这个居然不满足下面的域
+		// 找了其他网站看看，很多都省略 www 了
+		//colly.AllowedDomains("youngzy.com", "github.com"),
+		// 看了后面的例子，原来可以加上 www
+		colly.AllowedDomains("youngzy.com", "www.youngzy.com", "github.com"),
 	)
 
 	// On every an element which has href attribute call callback
